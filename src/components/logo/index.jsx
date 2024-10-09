@@ -17,7 +17,7 @@ const LogoSection = ({ sx, to }) => {
     <ButtonBase disableRipple component={Link} to={!to ? config.defaultPath : to} sx={{ ...sx, height: 200 }}>
       <Stack direction="row" spacing={1} alignItems="center">
         {/* <Logo /> */}
-        <img alt="logo" src="src/assets/images/icons/tmmr.png" style={{ width: 200 }} />
+        <img alt="logo" src={`https://app.tmmr.io/public/tmmr.png`} style={{ width: 200 }} />
         {/* <Chip
           label={import.meta.env.VITE_APP_VERSION}
           variant="outlined"
