@@ -61,18 +61,18 @@ export default function DashboardDefault() {
       <Grid item xs={12} sx={{ mb: -2.25 }}>
         <Typography variant="h5">Dashboard</Typography>
       </Grid>
-      <Grid item xs={12} sm={6} md={4} lg={3}>
+      <Grid item xs={12} sm={6} md={4} lg={4}>
         <AnalyticEcommerce title="Total Users" count={dashboardData.userCount?.toString()} />
       </Grid>
-      <Grid item xs={12} sm={6} md={4} lg={3}>
+      <Grid item xs={12} sm={6} md={4} lg={4}>
         <AnalyticEcommerce title="Total Companies" count={dashboardData.companyCount?.toString()} />
       </Grid>
-      <Grid item xs={12} sm={6} md={4} lg={3}>
+      <Grid item xs={12} sm={6} md={4} lg={4}>
         <AnalyticEcommerce title="Total Tours Booked" count={dashboardData.tourCount?.toString()} />
       </Grid>
-      <Grid item xs={12} sm={6} md={4} lg={3}>
+      {/* <Grid item xs={12} sm={6} md={4} lg={3}>
         <AnalyticEcommerce title="Total Prepay Amount" count={`$${dashboardData.totalPrepayAmount}`} />
-      </Grid>
+      </Grid> */}
 
       <Grid item md={8} sx={{ display: { sm: 'none', md: 'block', lg: 'none' } }} />
 

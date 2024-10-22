@@ -15,17 +15,18 @@ import axios from 'api/axios';
 
 // ==============================|| DEFAULT - UNIQUE VISITOR ||============================== //
 
-const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+// const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 export default function UniqueVisitorCard() {
-  const [slot, setSlot] = useState('week');
-
+  const [slot, setSlot] = useState('month');
+  const [startDate, setStartDate] = useState('');
+  const [endDate, setEndDate] = useState('');
   const [series, setSeries] = useState([]);
   const [labels, setLabels] = useState([]);
 
   useEffect(() => {
     axios
-      .get(`/analytics/users/signups?timeframe=${slot}`)
+      .get(`/analytics/users/signups?startDate=${startDate}&endDate=${endDate}`)
       .then((res) => {
         setSeries([
           {
@@ -33,19 +34,21 @@ export default function UniqueVisitorCard() {
             data: res.data.map((r) => r.count)
           }
         ]);
-        setLabels(
-          res.data.map((item) => {
-            const [year, month] = item._id.split('-');
-            const monthName = months[parseInt(month) - 1];
-            return monthName;
-          })
-        );
+
+        const options = { year: 'numeric', month: 'short', day: 'numeric' }; // Define options for date format
+
+        const labels = res.data.map((item) => {
+          const date = new Date(item._id); // Parse the _id into a Date object
+          return date.toLocaleDateString('en-US', options); // Format the date as "Oct 1, 2024"
+        });
+
+        setLabels(labels);
       })
       .catch((err) => {
         console.error(err);
         Alert('Internal Server Error');
       });
-  }, [slot]);
+  }, [startDate, endDate]);
 
   return (
     <>
@@ -54,23 +57,31 @@ export default function UniqueVisitorCard() {
           <Typography variant="h5">users Sign ups</Typography>
         </Grid>
         <Grid item>
-          <Stack direction="row" alignItems="center" spacing={0}>
-            <Button
-              size="small"
-              onClick={() => setSlot('month')}
-              color={slot === 'month' ? 'primary' : 'secondary'}
-              variant={slot === 'month' ? 'outlined' : 'text'}
-            >
-              Month
-            </Button>
-            <Button
-              size="small"
-              onClick={() => setSlot('week')}
-              color={slot === 'week' ? 'primary' : 'secondary'}
-              variant={slot === 'week' ? 'outlined' : 'text'}
-            >
-              Week
-            </Button>
+          <Stack direction="row" alignItems="center" spacing={2}>
+            <div className="flex flex-col mb-4">
+              <label htmlFor="startDate" className="text-lg mb-1">
+                Start Date
+              </label>
+              <input
+                id="startDate"
+                type="date"
+                value={startDate}
+                onChange={(e) => setStartDate(e.target.value)}
+                className="text-xl p-2 border rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div className="flex flex-col mb-4">
+              <label htmlFor="endDate" className="text-lg mb-1">
+                End Date
+              </label>
+              <input
+                id="endDate"
+                type="date"
+                value={endDate}
+                onChange={(e) => setEndDate(e.target.value)}
+                className="text-xl p-2 border rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
           </Stack>
         </Grid>
       </Grid>

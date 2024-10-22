@@ -14,13 +14,13 @@ const support = {
   title: 'Vehicles',
   type: 'group',
   children: [
-    // {
-    //   id: 'vehicle-data',
-    //   title: 'Vehicles Data',
-    //   type: 'item',
-    //   url: '/vehicles-data',
-    //   icon: icons.ChromeOutlined
-    // },
+    {
+      id: 'vehicle-data',
+      title: 'Vehicles Data',
+      type: 'item',
+      url: '/vehicles-data',
+      icon: icons.ChromeOutlined
+    },
     {
       id: 'vehicle-analytics',
       title: 'Vehicles Analytics',

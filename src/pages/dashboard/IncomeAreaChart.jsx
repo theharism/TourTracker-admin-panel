@@ -46,34 +46,21 @@ export default function IncomeAreaChart({ slot, series, labels }) {
         categories: slot === 'month' ? labels : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
         labels: {
           style: {
-            colors: [
-              secondary,
-              secondary,
-              secondary,
-              secondary,
-              secondary,
-              secondary,
-              secondary,
-              secondary,
-              secondary,
-              secondary,
-              secondary,
-              secondary
-            ]
+            colors: Array(12).fill(secondary)
           }
         },
         axisBorder: {
           show: true,
           color: line
-        },
-        tickAmount: slot === 'month' ? 11 : 7
+        }
       },
       yaxis: {
         labels: {
           style: {
             colors: [secondary]
           }
-        }
+        },
+        forceNiceScale: true // Uses better scaling to avoid repeated values
       },
       grid: {
         borderColor: line
@@ -84,4 +71,8 @@ export default function IncomeAreaChart({ slot, series, labels }) {
   return <ReactApexChart options={options} series={series} type="area" height={450} />;
 }
 
-IncomeAreaChart.propTypes = { slot: PropTypes.string, series: PropTypes.array, labels: PropTypes.array };
+IncomeAreaChart.propTypes = {
+  slot: PropTypes.string,
+  series: PropTypes.array,
+  labels: PropTypes.array
+};

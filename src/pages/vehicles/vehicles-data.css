@@ -1,0 +1,27 @@
+.table-container {
+    overflow: hidden; /* Hide the overflow of the container */
+  }
+  
+  .table {
+    width: 100%; /* Ensure the table takes full width */
+    border-collapse: collapse; /* Collapse borders */
+  }
+  
+  .table th,
+  .table td {
+    padding: 8px 16px;
+    border-bottom: 1px solid #e5e7eb; /* Border for table rows */
+  }
+  
+  .scrollable-body {
+    display: block; /* Make the tbody a block element */
+    max-height: 300px; /* Set a max height for scrolling */
+    overflow-y: auto; /* Enable vertical scrolling */
+  }
+  
+  .scrollable-body tr {
+    display: table; /* Make rows display as table elements */
+    table-layout: fixed; /* Prevent layout issues */
+    width: 100%; /* Ensure rows take full width */
+  }
+  

@@ -13,6 +13,7 @@ import TourBookingsData from 'pages/tourBookings/tourBookings-data';
 import OfficePostToursData from 'pages/officePostTours/officePostTours-data';
 import DriverPostToursData from 'pages/driverPostTours/driverPostTours-data';
 import ToursAnalytics from 'pages/tours/tours-analytics';
+import VehiclesData from 'pages/vehicles/vehicles-data';
 
 const DashboardDefault = Loadable(lazy(() => import('pages/dashboard/index')));
 
@@ -55,10 +56,10 @@ const MainRoutes = {
       path: 'drivers-analytics',
       element: <DriversAnalytics />
     },
-    // {
-    //   path: 'vehicles-data',
-    //   element: <SamplePage />
-    // },
+    {
+      path: 'vehicles-data',
+      element: <VehiclesData />
+    },
     {
       path: 'vehicles-analytics',
       element: <VehiclesAnalytics />
