@@ -1,45 +1,50 @@
-.table-container {
-    overflow: hidden; /* Hide the overflow of the container */
-  }
-  
-  .table {
-    width: 100%; /* Ensure the table takes full width */
-    border-collapse: collapse; /* Collapse borders */
-  }
-  
-  .table th,
-  .table td {
-    padding: 8px 16px;
-    border-bottom: 1px solid #e5e7eb; /* Border for table rows */
-  }
-  
-  .scrollable-body {
-    display: block; /* Make the tbody a block element */
-    max-height: 300px; /* Set a max height for scrolling */
-    overflow-y: auto; /* Enable vertical scrolling */
-  }
-  
-  .scrollable-body tr {
-    display: table; /* Make rows display as table elements */
-    table-layout: fixed; /* Prevent layout issues */
-    width: 100%; /* Ensure rows take full width */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+tr.hover-effect:hover {
+  background-color: #f9f9f9;
+}
+
+/* Highlight companies with more than 1 vehicle */
+.highlight-company {
+  background-color: #e9f5ff; /* Light blue for companies with multiple cars */
+}
+
+.vehicle-indent {
+  padding-left: 20px;
+  border: none; /* No border for the indent */
+}
+
+.no-company {
+  font-style: italic;
+  color: #aaa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  th, td {
+    font-size: 14px;
   }
 
-  .company-name{
-    font-weight: 600;
+  .vehicle-indent {
+    padding-left: 10px;
   }
+}
 
-  .table-heading {
-    text-align: left;
-    font-size:large;
+@media (min-width: 769px) {
+  th, td {
+    font-size: 16px;
   }
-  
-  
-  .with-top-border {
-    border-top: 1.4px solid black;
-  }
-  
-  .with-bottom-border {
-    border-bottom: 1.4px solid black;
-  }
-  
+}

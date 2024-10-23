@@ -21,29 +21,31 @@ export default function VehiclesData() {
     <MainCard>
       <Box sx={{ width: '100%' }}>
         <div className="table-container">
-          <table className="table">
+          <table style={{ width: '100%', tableLayout: 'fixed', borderCollapse: 'collapse' }}>
             <thead>
               <tr>
-                <th className="table-heading">Company Name</th>
-                <th className="table-heading">Vehicles</th>
+                <th style={{ textAlign: 'left', width: '50%' }}>Company Name</th>
+                <th style={{ textAlign: 'left', width: '50%' }}>Vehicles</th>
               </tr>
             </thead>
             <tbody>
               {companies.map((company, index) => (
                 <Fragment key={index}>
-                  <tr className="hover-effect company-row with-top-border">
-                    <td className="company-name">{company.company_name}</td>
-                    <td>{company.company_vehicles[0]}</td>
+                  <tr className={`company-row hover-effect ${company.company_vehicles.length > 1 ? 'highlight-company' : ''}`}>
+                    <td className="company-name">
+                      {company.company_name ? company.company_name : <span className="no-company">[No Company Name]</span>}
+                    </td>
+                    <td className="vehicle">{company.company_vehicles[0]}</td>
                   </tr>
-                  {company.company_vehicles.slice(1).map((vehicle, vehicleIndex) => {
-                    const isLastVehicle = vehicleIndex === company.company_vehicles.length - 2;
-                    return (
-                      <tr key={vehicleIndex} className={`hover-effect vehicle-row ${isLastVehicle ? 'with-bottom-border' : ''}`}>
-                        <td></td>
-                        <td className="vehicle">{vehicle}</td>
-                      </tr>
-                    );
-                  })}
+                  {company.company_vehicles.slice(1).map((vehicle, vehicleIndex) => (
+                    <tr
+                      key={vehicleIndex}
+                      className={`vehicle-row hover-effect ${company.company_vehicles.length > 1 ? 'highlight-company' : ''}`}
+                    >
+                      <td className="vehicle-indent"></td>
+                      <td className="vehicle">{vehicle}</td>
+                    </tr>
+                  ))}
                 </Fragment>
               ))}
             </tbody>
