@@ -42,14 +42,14 @@ export default function CompaniesAnalytics() {
     axios
       .get(`/analytics/tours/booked?year=${month.split('-')[0]}&month=${month.split('-')[1]}`)
       .then((res) => {
-        setToursBookedData(res.data.map((obj) => obj.totalTours));
-        setToursBookedLabels(res.data.map((obj) => obj.companyName));
+        setToursBookedData(res.data.map((obj) => obj?.totalTours));
+        setToursBookedLabels(res.data.map((obj) => obj?.companyName));
       })
       .catch((err) => {
         console.error(err);
         Alert('Internal Server Error');
       });
-  }, []);
+  }, [month]);
 
   const labels = tourTypes?.map((tour) => tour._id);
 

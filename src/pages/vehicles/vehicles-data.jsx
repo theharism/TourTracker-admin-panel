@@ -19,28 +19,31 @@ export default function VehiclesData() {
 
   return (
     <MainCard>
-      <Box sx={{ height: 400, width: '100%' }}>
+      <Box sx={{ width: '100%' }}>
         <div className="table-container">
           <table className="table">
             <thead>
               <tr>
-                <th>Company Name</th>
-                <th>Vehicles</th>
+                <th className="table-heading">Company Name</th>
+                <th className="table-heading">Vehicles</th>
               </tr>
             </thead>
             <tbody>
               {companies.map((company, index) => (
                 <Fragment key={index}>
-                  <tr className="hover-effect">
+                  <tr className="hover-effect company-row with-top-border">
                     <td className="company-name">{company.company_name}</td>
                     <td>{company.company_vehicles[0]}</td>
                   </tr>
-                  {company.company_vehicles.slice(1).map((vehicle, vehicleIndex) => (
-                    <tr key={vehicleIndex} className="hover-effect vehicle-row">
-                      <td></td>
-                      <td className="vehicle">{vehicle}</td>
-                    </tr>
-                  ))}
+                  {company.company_vehicles.slice(1).map((vehicle, vehicleIndex) => {
+                    const isLastVehicle = vehicleIndex === company.company_vehicles.length - 2;
+                    return (
+                      <tr key={vehicleIndex} className={`hover-effect vehicle-row ${isLastVehicle ? 'with-bottom-border' : ''}`}>
+                        <td></td>
+                        <td className="vehicle">{vehicle}</td>
+                      </tr>
+                    );
+                  })}
                 </Fragment>
               ))}
             </tbody>

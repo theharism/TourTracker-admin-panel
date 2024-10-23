@@ -14,27 +14,27 @@ const support = {
   title: 'Tours',
   type: 'group',
   children: [
-    {
-      id: 'tour-booking-data',
-      title: 'Tour Bookings',
-      type: 'item',
-      url: '/tour-bookings',
-      icon: icons.ChromeOutlined
-    },
-    {
-      id: 'office-post-tours-data',
-      title: 'Office Post Tours',
-      type: 'item',
-      url: '/office-post-tours',
-      icon: icons.ChromeOutlined
-    },
-    {
-      id: 'driver-post-tours-data',
-      title: 'Driver Post Tours',
-      type: 'item',
-      url: '/driver-post-tours',
-      icon: icons.ChromeOutlined
-    },
+    // {
+    //   id: 'tour-booking-data',
+    //   title: 'Tour Bookings',
+    //   type: 'item',
+    //   url: '/tour-bookings',
+    //   icon: icons.ChromeOutlined
+    // },
+    // {
+    //   id: 'office-post-tours-data',
+    //   title: 'Office Post Tours',
+    //   type: 'item',
+    //   url: '/office-post-tours',
+    //   icon: icons.ChromeOutlined
+    // },
+    // {
+    //   id: 'driver-post-tours-data',
+    //   title: 'Driver Post Tours',
+    //   type: 'item',
+    //   url: '/driver-post-tours',
+    //   icon: icons.ChromeOutlined
+    // },
     {
       id: 'tours-analytics',
       title: 'Tours Analytics',

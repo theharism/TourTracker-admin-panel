@@ -40,10 +40,10 @@ const MainRoutes = {
         }
       ]
     },
-    {
-      path: 'users-data',
-      element: <UsersData />
-    },
+    // {
+    //   path: 'users-data',
+    //   element: <UsersData />
+    // },
     {
       path: 'users-analytics',
       element: <UsersAnalytics />
@@ -72,18 +72,18 @@ const MainRoutes = {
       path: 'companies-analytics',
       element: <CompaniesAnalytics />
     },
-    {
-      path: 'tour-bookings',
-      element: <TourBookingsData />
-    },
-    {
-      path: 'office-post-tours',
-      element: <OfficePostToursData />
-    },
-    {
-      path: 'driver-post-tours',
-      element: <DriverPostToursData />
-    },
+    // {
+    //   path: 'tour-bookings',
+    //   element: <TourBookingsData />
+    // },
+    // {
+    //   path: 'office-post-tours',
+    //   element: <OfficePostToursData />
+    // },
+    // {
+    //   path: 'driver-post-tours',
+    //   element: <DriverPostToursData />
+    // },
     {
       path: 'tours-analytics',
       element: <ToursAnalytics />

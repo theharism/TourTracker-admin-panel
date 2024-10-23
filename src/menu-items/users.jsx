@@ -14,13 +14,13 @@ const support = {
   title: 'Users',
   type: 'group',
   children: [
-    {
-      id: 'user-data',
-      title: 'Users',
-      type: 'item',
-      url: '/users-data',
-      icon: icons.ChromeOutlined
-    },
+    // {
+    //   id: 'user-data',
+    //   title: 'Users',
+    //   type: 'item',
+    //   url: '/users-data',
+    //   icon: icons.ChromeOutlined
+    // },
     {
       id: 'user-analytics',
       title: 'Users Analytics',

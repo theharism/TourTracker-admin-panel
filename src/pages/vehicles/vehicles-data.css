@@ -24,4 +24,22 @@
     table-layout: fixed; /* Prevent layout issues */
     width: 100%; /* Ensure rows take full width */
   }
+
+  .company-name{
+    font-weight: 600;
+  }
+
+  .table-heading {
+    text-align: left;
+    font-size:large;
+  }
+  
+  
+  .with-top-border {
+    border-top: 1.4px solid black;
+  }
+  
+  .with-bottom-border {
+    border-bottom: 1.4px solid black;
+  }
   
